@@ -1,0 +1,67 @@
+{% extends "Base.html" %}
+
+{% block content %}
+
+<body>
+
+
+  <div class="container">
+
+    <div class="jumbotron" style="color: black;">
+      <h1 class="display-4"><strong>FruitSense</strong></h1>
+      <p class="lead">Identifica el tipo de fruta y su nivel de Frescura
+      <hr class="my-4">
+      <!-- <p>Modelos entrenado para predecir una fruta en particular y también verificar su calidad en una imagen dada.</p> -->
+    </div>
+
+  </div>
+
+
+  <div class="container">
+    <p>
+      <button class="btn btn-primary" style="font-weight: bold" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Acerca del proyecto
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body" align='left'>
+        Un modelo simple de red neuronal profunda entrenado con imágenes del mundo real de: Manzanas, Bananos y Naranjas<br><br>
+        Desarrollado por:
+        <ul>
+          <li><strong>Dacia Espinoza</strong> </li>
+          <li><strong>Ingrid Baquedano</strong></li>
+          <li><strong>Jorlin Rosa</strong></li>
+          <li><strong>Mario Carbajal</strong></li>
+        </ul>
+        Estudiantes de la clase de Inteligencia Artificial, UNAH-Choluteca.
+      </div>
+    </div>
+      <hr>
+    <form action="{{url_for("pred")}}"  method="POST" enctype="multipart/form-data">
+      <h4>Apartado para subir la imágen:</h4>
+
+      <div class="form-group">
+      <!-- <img src="../static/upload5.png" alt="img" width="20%" height="5%"> -->
+      <label>
+      <input type="file" name="file" id="file" style="display:none" accept="image/*" required>
+      <img src="../static/upload3.png" width="20%">
+      </label>
+    </div>
+
+      <div class="container">
+        <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+        <label class="form-check-label" for="exampleCheck1">Imágenes relacionadas con: <strong>1. Manzanas</strong>, <strong>2. Bananas</strong>, <strong>3. Naranjas</strong></label>
+      </div>
+
+      </div>
+    <br>
+      <input type="submit" style="background-color: #4caf50; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer;font-weight: bold;" class="btn btn-secondary" name="Submit and predict" value="Enviar y Predecir">
+    </form>
+    <br>
+
+  </div>
+
+
+</body>
+{% endblock %}
